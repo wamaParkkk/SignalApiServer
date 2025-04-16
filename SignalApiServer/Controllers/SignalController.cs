@@ -29,8 +29,8 @@ namespace SignalApiServer.Controllers
                                    WHERE Asset = @Asset; 
                                    IF @@ROWCOUNT = 0 
                                    BEGIN
-                                   INSERT INTO K5EE_SignalLog (Type, LineCode, Asset, SignalRed, SignalYellow, SignalGreen, SignalSpare, Remarks1, Remarks2, UpdatedAt)
-                                   VALUES (@Type, @LineCode, @Asset, @SignalRed, @SignalYellow, @SignalGreen, @SignalSpare, @Remarks1, @Remarks2, GETDATE());
+                                   INSERT INTO K5EE_SignalLog (Asset, Type, LineCode, SignalRed, SignalYellow, SignalGreen, SignalSpare, Remarks1, Remarks2, UpdatedAt)
+                                   VALUES (@Asset, @Type, @LineCode, @SignalRed, @SignalYellow, @SignalGreen, @SignalSpare, @Remarks1, @Remarks2, GETDATE());
                                    END"
                     ;
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
